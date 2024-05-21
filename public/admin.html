@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin stranica</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Admin stranica</h1>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div id="adminGreeting"></div>
+            <button class="btn btn-secondary" onclick="logout()" type="button">Odjava</button>
+        </div>
+        <ul class="nav nav-tabs mt-3" id="adminTabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#taskTypesTab" data-toggle="tab">Vrste zadataka</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#usersTab" data-toggle="tab">Korisnici</a>
+            </li>
+        </ul>
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="taskTypesTab">
+                <button class="btn btn-primary" onclick="showTaskTypeForm()" type="button">Dodaj vrstu zadataka</button>
+                <div id="taskType-list" class="mt-3"></div>
+            </div>
+            <div class="tab-pane fade" id="usersTab">
+                <div id="user-list" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Task Type Form Modal -->
+        <div class="modal" id="taskTypeModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Forma za vrstu zadataka</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="taskTypeForm">
+                            <div class="form-group">
+                                <label for="taskTypeName">Ime vrste zadataka</label>
+                                <input type="text" id="taskTypeName" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sačuvaj vrstu zadataka</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
